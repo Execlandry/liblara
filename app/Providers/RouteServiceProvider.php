@@ -20,7 +20,13 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
+     * The controller namespace for the application.
+     * when present, controller route declarations will automatically be prefix
+     *
+     * @var string|null
+     */
+    protected $namespace = 'App\\Http\\Controllers';
+     /** Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
@@ -29,9 +35,13 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::prefix('api')
+            // Route::prefix('api')
+            //     ->middleware('api')
+            //     ->group(base_path('routes/api.php'));
+            Route::prefix('api/v1')
                 ->middleware('api')
-                ->group(base_path('routes/api.php'));
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v1/api.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
