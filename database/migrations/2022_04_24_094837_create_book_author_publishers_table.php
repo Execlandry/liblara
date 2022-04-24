@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('book_author_publishers', function (Blueprint $table) {
             $table->id();
-            $table->integer("user_id");
-            $table->integer("post_id");
-
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('book_author_publishers');
     }
 };

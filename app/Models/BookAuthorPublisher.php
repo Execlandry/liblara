@@ -5,13 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Like extends Model
+class BookAuthorPublisher extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        "user_id",
-        "book_id"
-
-    ];
+    protected $table= 'book_author_publisher';
 }

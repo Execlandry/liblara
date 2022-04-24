@@ -1,55 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\UserOperations;
+namespace App\Http\Controllers\Api\V1\UserSpecs;
 use App\Http\Controllers\Controller;
 
-use App\Models\Like;
-use App\Models\Comment;
-use App\Models\Book;
-
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class LikeController extends Controller
+
+class UsersController extends Controller
 {
-
-    public function likeOrUnlike($id){
-        $books = Book::find($id);
-
-        if(!$books){
-            return response([
-                'message' => "Book not found",
-            ],403);
-
-        }
-        $like = $books->likes()->where('user_id',auth()->user()->id)->first();
-
-        //if not liked then like
-
-        if(!$like){
-            Like::create([
-                'book_id'=>$id,
-                'user_id'=>auth()->user()->id,
-
-            ]);
-            return response([
-                'message' => "Liked",
-            ],200);
-        }
-        //else dislike it
-        $like->delete();
-         
-        return response([
-            'message' => 'Disliked',
-        ],200);
-    }
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        return User::all();
+        
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }
@@ -72,6 +48,17 @@ class LikeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }

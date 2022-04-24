@@ -4,45 +4,45 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Comment;
-use App\Models\Like;
-
 
 class Book extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
-        "body",
-        "user_id",
-        "image"
-
+        'acc_no',
+        'title',
+        'edition',
+        'year',
+        'pages',
+        'source',
+        'bill_no',
+        'bill_date',
+        'cost',
+        'call_no',
     ];
 
-        public function user(): BelongsTo
-        {
-            return $this->belongsTo(User::class);
-        }
-
+    
         /**
-         * Get all of the comments for the Book
+         * Get all of the authors for the Book
          *
-         * @return \Illuminate\Database\Eloquent\Relations\HasMany
+         * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
          */
-        public function comments()
-        {
-            return $this->hasMany(Comment::class);
-        }
+        public function author(){
+            
+                return $this->hasManyThrough(
+                    '\App\Models\Author',
+                    '\App\Models\Publisher',
+                    '\App\Models\BookAuthorPublisher',
+                    'book_id',
+                    'acc_no',
+                    'id',
+                    'author_id',
+                    'id',
+                    'publisher_id'
 
-        /**
-         * Get all of the likes for the Book
-         *
-         * @return \Illuminate\Database\Eloquent\Relations\HasMany
-         */
-        public function likes()
-        {
-            return $this->hasMany(Like::class);
-        }
+
+                );
+        } 
     
 }

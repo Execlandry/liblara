@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\User;
 
-class AuthController extends Controller
+class AuthsController extends Controller
 {
     public function register(Request $request)
     {
