@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1\UserOperations;
+
 
 use App\Http\Requests\StorePublisherRequest;
 use App\Http\Requests\UpdatePublisherRequest;
 use App\Models\Publisher;
+use App\Http\Controllers\Controller;
+
 
 class PublishersController extends Controller
 {

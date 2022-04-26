@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'acc_no';
+    public $incrementing = false;
     
     protected $fillable = [
         'acc_no',

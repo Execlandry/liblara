@@ -14,8 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('book_author_publisher', function (Blueprint $table) {
-
-        
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')
                 ->references('id')
@@ -24,16 +22,16 @@ return new class extends Migration
 
             $table->unsignedBigInteger('book_id');
             $table->foreign('book_id')
-                ->references('acc_no')
+                ->references('id')
                 ->on('books')
                 ->cascade('delete');
-
-            $table->unsignedBigInteger('publisher_id');
-            $table->foreign('publisher_id')
-                ->references('id')
-                ->on('publishers')
-                ->cascade('delete');
-
+        
+         
+             $table->unsignedBigInteger('book_id');
+             $table->foreign('book_id')
+                  ->references('id')
+                  ->on('books')
+                  ->cascade('delete');
         });
     }
 

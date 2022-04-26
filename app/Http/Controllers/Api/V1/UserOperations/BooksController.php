@@ -62,11 +62,13 @@ class BooksController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($acc_no)
     {
     //id error should be acc_no
-
-        return new BooksResource($book);
+        // $acc= request->acc_no;
+        $acc= Book::where('acc_no',$acc_no)->get();
+        // return $acc;
+        return new BooksResource($acc);
     }
 
     /**

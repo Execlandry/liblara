@@ -33,12 +33,16 @@ Route::group(['namespace'=>'Api\V1'],function(){
     });
 
 
+    Route::get('/books', [BooksController::class, 'index']);
+    Route::get('/books/{acc_no}', [BooksController::class, 'show']);
+
+    Route::get('/authors',[AuthorsController::class,'index']);
 
 
     
     Route::middleware(['auth:sanctum'])->group(function () {
-        Route::apiResource('/authors',AuthorsController::class);
-        Route::apiResource('/books',BooksController::class);
+        // Route::apiResource('/authors',AuthorsController::class);
+        // Route::apiResource('/books',BooksController::class);
 
 
 

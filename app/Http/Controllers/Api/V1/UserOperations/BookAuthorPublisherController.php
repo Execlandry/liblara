@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1\UserOperations;
 
 use App\Http\Requests\StoreBookAuthorPublisherRequest;
 use App\Http\Requests\UpdateBookAuthorPublisherRequest;
 use App\Models\BookAuthorPublisher;
+use App\Http\Controllers\Controller;
+
 
 class BookAuthorPublisherController extends Controller
 {

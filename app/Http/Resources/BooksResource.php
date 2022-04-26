@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Resources;
+// use \App\Http\Resources\AuthorsResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,7 +21,9 @@ class BooksResource extends JsonResource
             'acc_no'=> (string)$this->acc_no,
             'title'=> $this->title,
             //inserting author resource
-            'author'=> $this->author,
+            // 'author'=> $this->author,
+            // 'publisher' => $this->publisher,
+            
             
             'attributes' => [
                 'edition'=> $this->edition,
